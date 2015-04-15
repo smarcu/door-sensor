@@ -8,7 +8,7 @@ public class PropertiesUtils {
 		try {
 			String val = config.getProperty(key);
 			if (val != null) {
-				def = Integer.parseInt(val);
+				vint = Integer.parseInt(val);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
