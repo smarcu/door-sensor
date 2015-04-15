@@ -72,10 +72,12 @@ public class DoorMonitor {
 		mailService.sendEmail(5000, config.getProperty(EMAIL_SUBJECT, "Door Security"), " - app started");
 
 		if (serverPulse != null) {
+			log.info("starting pulse");
 			serverPulse.start();
 		}
 
 		if (gpioTrigger != null) {
+			log.info("adding gpio trigger listener");
 			gpioTrigger.addListener(processorFactory.createListener());
 		}
 			
@@ -84,11 +86,13 @@ public class DoorMonitor {
 	public static void main(String s[]) {
 
 		try {
+			String propertiesFile = s.length == 1 ? s[0] : "door.properties";
 			Properties config = new Properties();
 			try {
-			  config.load(new FileInputStream("door.properties"));
+			  config.load(new FileInputStream(propertiesFile));
 			} catch (IOException e) {
-			  log.log(Level.WARNING, "cannot find door.properties file");
+			  log.log(Level.WARNING, "cannot find properties file: {0}", propertiesFile);
+			  return;
 			}
 			
 			DoorMonitor monitor = DoorMonitor.createFromConfig(config);
