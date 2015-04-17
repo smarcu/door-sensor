@@ -23,9 +23,9 @@ public class DoorOpenProcessor implements GpioPinListenerDigital {
 	
 	private final Logger log = Logger.getLogger(DoorOpenProcessor.class.getName());
 	
-	private static final String SHOT_SLEEP = "shot.sleep";
-	private static final String SHOT_COUNT = "shot.count";
-	private static final String EMAIL_SUBJECT = "email.subject";
+	public static final String SHOT_SLEEP = "shot.sleep";
+	public static final String SHOT_COUNT = "shot.count";
+	public static final String EMAIL_SUBJECT = "email.subject";
 	
 	private static AtomicBoolean doorOpenFlag = new AtomicBoolean(false);
 	private Camera cameraService;
