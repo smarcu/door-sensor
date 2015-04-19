@@ -69,7 +69,7 @@ public class DoorMonitor {
 		log.info("started.");
 		
 		// send email, app started or rebooted
-		mailService.sendEmail(5000, config.getProperty(EMAIL_SUBJECT, "Door Security"), " - app started");
+		mailService.sendEmail(10000, config.getProperty(EMAIL_SUBJECT, "Door Security"), " - app started");
 
 		if (serverPulse != null) {
 			log.info("starting pulse");
