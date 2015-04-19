@@ -7,7 +7,7 @@
 
 	<properties>
 		<java.mail.version>1.5.2</java.mail.version>
-		<pi4j.version>0.0.5</pi4j.version>
+		<pi4j.version>1.1-SNAPSHOT</pi4j.version>
 		<dumbster.version>1.6</dumbster.version>
 		<junit.version>4.12</junit.version>
 		<mockito.version>1.10.19</mockito.version>
@@ -55,6 +55,24 @@
 					</archive>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/assembly/assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -64,7 +82,6 @@
 			<artifactId>pi4j-core</artifactId>
 			<version>${pi4j.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>javax.mail-api</artifactId>
@@ -105,6 +122,7 @@
 
 	</dependencies>
 
+
 	<repositories>
 		<repository>
 			<id>oss-snapshots-repo</id>
@@ -116,4 +134,6 @@
 			</snapshots>
 		</repository>
 	</repositories>
+
+
 </project>
