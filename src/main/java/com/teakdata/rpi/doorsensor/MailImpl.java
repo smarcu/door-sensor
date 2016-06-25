@@ -109,6 +109,7 @@ public class MailImpl implements Mail {
 		properties.put("mail.smtp.user", emailFrom);
 		properties.put("mail.smtp.auth", "true");
 		properties.put("mail.smtp.starttls.enable", "true");
+		properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 		
 		Authenticator auth = new Authenticator() {
 			@Override
